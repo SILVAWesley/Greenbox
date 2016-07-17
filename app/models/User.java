@@ -22,10 +22,6 @@ public class User {
         this.password = password;
     }
 
-    public Userpage getUserpage(){
-        return userpage;
-    }
-
     // Maybe the fileContent will be a String later
     public void createFile(String filename, StringBuffer fileContent) throws Exception{
         File file = new File(filename + ".txt"); // we should create an enum later for the file types.
@@ -44,5 +40,19 @@ public class User {
         userpage.addDirectory(directory);
     }
 
+    public String getUsername(){
+        return username;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Userpage getUserpage(){
+        return userpage;
+    }
 }

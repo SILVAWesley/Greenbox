@@ -11,12 +11,12 @@ import java.util.UUID;
 public class User {
 
     private UUID uuid;
-    private Userpage userpage;
+    private UserDirectory userdirectory;
     private String email, username, password;
 
     public User(String email, String username, String password){
         this.uuid = UUID.randomUUID();
-        this.userpage = new Userpage();
+        this.userdirectory = new UserDirectory(username);
         this.username = username;
         this.email = email;
         this.password = password;
@@ -24,20 +24,12 @@ public class User {
 
     // Maybe the fileContent will be a String later
     public void createFile(String filename, StringBuffer fileContent) throws Exception{
-        File file = new File(filename + ".txt"); // we should create an enum later for the file types.
-        writeInFile(file, fileContent);
-        userpage.addFile(file);
+        userdirectory.addFile(filename, fileContent);
     }
 
-    private void writeInFile(File file, StringBuffer fileContent) throws Exception{
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file)); // This throws an exception.
-        writer.write(fileContent.toString());
-        writer.close();
-    }
 
-    public void createDIrectory(String directoryName) throws Exception{
-        File directory = new File(directoryName);
-        userpage.addDirectory(directory);
+    public void createDirectory(String directoryName) throws Exception{
+        userdirectory.addDirectory(directoryName);
     }
 
     public String getUsername(){
@@ -52,7 +44,8 @@ public class User {
         return password;
     }
 
-    public Userpage getUserpage(){
-        return userpage;
+    public UserDirectory getUserDirectory(){
+        return userdirectory;
     }
+    
 }

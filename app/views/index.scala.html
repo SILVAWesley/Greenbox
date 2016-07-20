@@ -5,7 +5,7 @@
         <h1>@message</h1>
     </div>
 
-        <!-- início do login/cadastrar -->
+    <!-- início do login/cadastrar -->
     <form name="Login" method="POST" action="@routes.Application.login()">
         <div align="center">
             Usuario: <input type="email" name="nome" placeholder="Email Address">
@@ -16,23 +16,22 @@
                 Senha: <input type="password" name="senha"  placeholder="senha">
         </div>
 
-            <!-- Cria botão Login-->
+        <!-- Cria botão Login-->
         <div align="center">
             <button type="submit">Login</button>
         </div>
     </form>
 
-        <!-- Cria botão Candastrar-->
-    <form name="Cadastrar" method="POST" action="@routes.Application.cadastro()">
+    <!-- Cria botão Candastrar-->
+    <form name="Cadastrar" method="POST" action="@routes.Application.cadastrarUser()">
         <div align="center">
             <button type="submit">Cadastrar</button>
         </div>
     </form>
+    <!-- fim do login/cadastrar -->
 
-        <!-- fim do login/cadastrar -->
 
-
-        <!-- linhas adicionais que seão auteradas ao logo do projeto -->
+    <!-- linhas adicionais que seão auteradas ao logo do projeto -->
     <p>
         O <strong>Green Box</strong> é um sistema de compartilhamento em nuvem que você poderá visualizar, modificar e até mesmo criar arquivos texto de modo que poderão ser acessados, em qualquer parte do mundo!
     </p>

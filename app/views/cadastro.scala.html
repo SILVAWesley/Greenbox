@@ -1,15 +1,15 @@
-@(message:String)
+@(user: User)
 
 @main("Green Box") {
 
     <!-- início do cabecalho -->
-    <div class="well" style="color: greenyellow; background-color: whitesmoke;">
-        <h1>@message</h1>
-    </div>
-        <!-- fim do cabecalho -->
+    <!--<div class="well" style="color: greenyellow; background-color: whitesmoke;">
+        <h1>message</h1>
+    </div>-->
+    <!-- fim do cabecalho -->
 
-        <!-- início do cadastrar -->
-    <form method="POST">
+    <!-- início do cadastrar -->
+    <form method="POST" action="@routes.Application.cadastrarUser()">
         <div align="center">
             Nome: <input type="text" name="nome" placeholder="Nome">
         </div>
@@ -21,21 +21,19 @@
         <div align="center">
             Senha: <input type="password" name="senha"  placeholder="Senha">
         </div>
-    </form>
 
-        <!-- Cria botão OK-->
-    <form name="Cadastrar" method="POST">
         <div align="center">
             <button type="submit">OK</button>
         </div>
     </form>
 
-        <!-- Cria botão Cancelar-->
+    <!-- Cria botão Cancelar-->
     <form name="Cancelar" method="GET" action="@routes.Application.index()">
         <div align="center">
             <button type="submit"> <!--- style='background-color: #FFDFCA; color: #000000; border-style: double; border-width: 1'--->
                 Cancelar</button>
         </div>
     </form>
-        <!-- fim do cadastrar -->
+    <!-- fim do cadastrar -->
+
 }

@@ -47,5 +47,5 @@ public class User {
     public UserDirectory getUserDirectory(){
         return userdirectory;
     }
-    
+
 }

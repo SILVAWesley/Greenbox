@@ -4,7 +4,7 @@
 
 # Home Page
 GET     /                           controllers.Application.index()
-POST    /cadastrarusuario           controllers.Application.cadastro()
+POST    /cadastrarusuario           controllers.Application.cadastrarUser()
 POST    /home                       controllers.Application.login()
 
 

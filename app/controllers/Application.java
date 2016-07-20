@@ -16,15 +16,13 @@ public class Application extends Controller {
     private List<User> listUsers = new ArrayList<>();
 
     public Result index() {
-        return ok(index.render("Green Box"));
+        return ok(index.render(listUsers));
     }
 
     public Result cadastrarUser() {
         User user = formFactory.form(User.class).bindFromRequest().get();
         listUsers.add(user);
         return redirect(routes.Application.login());
-        //User user = new User("dsf","asdas","sadas");
-        //return ok(cadastro.render(user));
     }
 
     public Result login() {

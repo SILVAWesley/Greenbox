@@ -1,9 +1,7 @@
-@(message: String)
+@(listUsers : List[User])
 
 @main("Welcome GreenBox") {
-    <div class="well" style="color: greenyellow; background-color: whitesmoke;">
-        <h1>@message</h1>
-    </div>
+
 
     <!-- início do login/cadastrar -->
     <form name="Login" method="POST" action="@routes.Application.login()">

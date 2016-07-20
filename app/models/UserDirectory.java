@@ -1,5 +1,7 @@
 package models;
 
+import models.enums.UserFile;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,7 +15,7 @@ import java.util.UUID;
 public class UserDirectory {
 
     private UUID uuid;
-    private List<File> files;
+    private List<UserFile> files;
     private UserDirectory parent;
     private List<UserDirectory> children;
     private String name;
@@ -31,34 +33,14 @@ public class UserDirectory {
         this(name, null);
     }
 
-    public void addFile(String filename, StringBuffer fileContent) throws Exception{
-        File file = new File(this.name + "/" + filename + ".txt"); // we should create an enum later for the file types.
-        writeInFile(file, fileContent);
-        this.files.add(file);
+    public void addFile(String filename, String fileExtension, StringBuffer fileContent) throws Exception{
+        UserFile file = new UserFile(this.name + "/" + filename, fileExtension, fileContent);
+        files.add(file);
     }
 
     public void addDirectory(String directoryName){
         UserDirectory dir = new UserDirectory(this.name + "/" + directoryName, this);
         this.children.add(dir);
-    }
-
-    private boolean isValidFileType(File file){
-        String fileName = file.getName();
-        String[] nameDivisions = fileName.split(".");
-        String fileType = nameDivisions[nameDivisions.length -1];
-
-        // To add more valid types, we just need to put an AND
-        if(fileType.equals("txt")){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void writeInFile(File file, StringBuffer fileContent) throws Exception{
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file)); // This throws an exception.
-        writer.write(fileContent.toString());
-        writer.close();
     }
 
 
@@ -69,7 +51,7 @@ public class UserDirectory {
         return this.uuid;
     }
 
-    public List<File> getFiles() {
+    public List<UserFile> getFiles() {
         return files;
     }
 

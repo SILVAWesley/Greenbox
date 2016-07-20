@@ -24,7 +24,7 @@ public class User {
 
     // Maybe the fileContent will be a String later
     public void createFile(String filename, StringBuffer fileContent) throws Exception{
-        userdirectory.addFile(filename, fileContent);
+        userdirectory.addFile(filename, ".txt" ,fileContent); // An enum should be created for file extension
     }
 
 
